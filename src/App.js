@@ -12,6 +12,15 @@ function App() {
           <Route exact path="/userdetails" element={<UserDetails />}></Route>
         </Routes>
       </Router>
+      <div className="background">
+        <div className="animation">
+          <img
+            src="https://img.icons8.com/ios-filled/250/github.png"
+            alt="GitHub Logo"
+            className="github-logo"
+          />
+        </div>
+      </div>
     </>
   );
 }

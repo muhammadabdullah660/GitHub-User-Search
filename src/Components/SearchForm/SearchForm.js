@@ -6,17 +6,21 @@ export default function SearchForm() {
   const [userData, setUserData] = useState(null);
   const [username, setUsername] = useState("");
   const findUser = async () => {
-    const response = await axios.get(
-      `https://api.github.com/users/${username}`
-    );
-    //console.log(response.data);
-    setUserData(response.data);
+    try {
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`
+      );
+      console.log(response.data);
+      setUserData(response.data);
+    } catch (error) {
+      alert("User not found");
+    }
   };
   return (
     <>
       <div className="container">
         <div className="row">
-          <div className="col-10 mx-auto col-md-8 mt-5 text-center">
+          <div className="col-md-4">
             Enter username to search for user
             <input
               type="text"
