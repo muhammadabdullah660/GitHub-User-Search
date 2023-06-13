@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-
+import PropTypes from "prop-types";
+import axios from "axios";
+import "./UserDetails.css";
 export default function UserDetails({ data }) {
   //console.log(data);
   const {
@@ -14,15 +16,16 @@ export default function UserDetails({ data }) {
   } = data;
   return (
     <>
-      <div>
+      <div className="container search-form">
+        <img id="pfp" src={avatar_url} alt="Profile" />
+
         <h2>{login}</h2>
-        <img src={avatar_url} alt="Profile" />
-        <p>{bio}</p>
-        <p>Followers: {followers}</p>
-        <p>Following: {following}</p>
-        <p>Location: {location}</p>
-        <p>Blog: {blog}</p>
-        <p>Public Repositories: {public_repos}</p>
+        <p className="details">{bio}</p>
+        <p className="details">Followers: {followers}</p>
+        <p className="details">Following: {following}</p>
+        <p className="details">Location: {location}</p>
+        <p className="details">Blog: {blog}</p>
+        <p className="details">Public Repositories: {public_repos}</p>
       </div>
     </>
   );
