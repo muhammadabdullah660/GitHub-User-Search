@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import "./SearchForm.css";
 import UserDetails from "../UserDetails/UserDetails";
 export default function SearchForm() {
   const [userData, setUserData] = useState(null);
@@ -18,21 +19,35 @@ export default function SearchForm() {
   };
   return (
     <>
-      <div className="container">
+      <div className="container search-form">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-12">
+            <h1>Github User Search</h1>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="col-md-12 input">
             Enter username to search for user
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="col-md-12 input">
             <input
               type="text"
               name=""
-              id=""
+              id="input"
+              placeholder="Enter username"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <button onClick={findUser}>Find</button>
-            {userData && <UserDetails data={userData} />}
+            <button onClick={findUser} className="findButton">
+              Find
+            </button>
           </div>
         </div>
       </div>
+      {userData && <UserDetails data={userData} />}
     </>
   );
 }
